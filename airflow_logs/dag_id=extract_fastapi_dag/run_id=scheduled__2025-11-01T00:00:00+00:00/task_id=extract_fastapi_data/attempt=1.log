@@ -1,0 +1,121 @@
+[2025-11-02T09:19:35.387+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T09:19:35.392+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T09:19:35.392+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-11-02T09:19:35.399+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_fastapi_data> on 2025-11-01 00:00:00+00:00
+[2025-11-02T09:19:35.402+0000] {standard_task_runner.py:57} INFO - Started process 53 to run task
+[2025-11-02T09:19:35.404+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'extract_fastapi_dag', 'extract_fastapi_data', 'scheduled__2025-11-01T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/extract_fastapi_dag.py', '--cfg-path', '/tmp/tmpe92uwuo6']
+[2025-11-02T09:19:35.406+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask extract_fastapi_data
+[2025-11-02T09:19:35.446+0000] {task_command.py:415} INFO - Running <TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [running]> on host 0915358d2d5d
+[2025-11-02T09:19:35.485+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_fastapi_dag' AIRFLOW_CTX_TASK_ID='extract_fastapi_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-01T00:00:00+00:00'
+[2025-11-02T09:19:35.722+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0xffffa39be640>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='fastapi', port=8000): Max retries exceeded with url: /data/full (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffffa39be640>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/extract_fastapi_dag.py", line 22, in extract_data
+    response = requests.get(url, timeout=10)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='fastapi', port=8000): Max retries exceeded with url: /data/full (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffffa39be640>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-11-02T09:19:35.744+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=extract_fastapi_dag, task_id=extract_fastapi_data, execution_date=20251101T000000, start_date=20251102T091935, end_date=20251102T091935
+[2025-11-02T09:19:35.756+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3 for task extract_fastapi_data (HTTPConnectionPool(host='fastapi', port=8000): Max retries exceeded with url: /data/full (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffffa39be640>: Failed to establish a new connection: [Errno -2] Name or service not known')); 53)
+[2025-11-02T09:19:35.801+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-11-02T09:19:35.816+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-02T12:39:52.180+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T12:39:52.187+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T12:39:52.187+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-11-02T12:39:52.196+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_fastapi_data> on 2025-11-01 00:00:00+00:00
+[2025-11-02T12:39:52.201+0000] {standard_task_runner.py:57} INFO - Started process 53 to run task
+[2025-11-02T12:39:52.205+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'extract_fastapi_dag', 'extract_fastapi_data', 'scheduled__2025-11-01T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/extract_fastapi_dag.py', '--cfg-path', '/tmp/tmpb0o_qi33']
+[2025-11-02T12:39:52.206+0000] {standard_task_runner.py:85} INFO - Job 2: Subtask extract_fastapi_data
+[2025-11-02T12:39:52.263+0000] {task_command.py:415} INFO - Running <TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [running]> on host 790d198dd9a4
+[2025-11-02T12:39:52.301+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_fastapi_dag' AIRFLOW_CTX_TASK_ID='extract_fastapi_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-01T00:00:00+00:00'
+[2025-11-02T12:39:52.332+0000] {logging_mixin.py:151} INFO - Data successfully saved to: /opt/***/raw_data/full_load_20251102_123952.json
+[2025-11-02T12:39:52.333+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-11-02T12:39:52.337+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=extract_fastapi_dag, task_id=extract_fastapi_data, execution_date=20251101T000000, start_date=20251102T123952, end_date=20251102T123952
+[2025-11-02T12:39:52.387+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-11-02T12:39:52.400+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-02T13:07:25.829+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T13:07:25.836+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T13:07:25.836+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-11-02T13:07:25.842+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_fastapi_data> on 2025-11-01 00:00:00+00:00
+[2025-11-02T13:07:25.845+0000] {standard_task_runner.py:57} INFO - Started process 54 to run task
+[2025-11-02T13:07:25.848+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'extract_fastapi_dag', 'extract_fastapi_data', 'scheduled__2025-11-01T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/extract_fastapi_dag.py', '--cfg-path', '/tmp/tmpj36k011o']
+[2025-11-02T13:07:25.849+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask extract_fastapi_data
+[2025-11-02T13:07:25.893+0000] {task_command.py:415} INFO - Running <TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [running]> on host f91c7896431c
+[2025-11-02T13:07:25.932+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_fastapi_dag' AIRFLOW_CTX_TASK_ID='extract_fastapi_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-01T00:00:00+00:00'
+[2025-11-02T13:07:25.986+0000] {logging_mixin.py:151} INFO - Data successfully saved to: /opt/***/raw_data/full_load_20251102_130725.json
+[2025-11-02T13:07:25.986+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-11-02T13:07:25.992+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=extract_fastapi_dag, task_id=extract_fastapi_data, execution_date=20251101T000000, start_date=20251102T130725, end_date=20251102T130725
+[2025-11-02T13:07:26.028+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-11-02T13:07:26.040+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-02T14:01:47.366+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T14:01:47.373+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [queued]>
+[2025-11-02T14:01:47.373+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-11-02T14:01:47.395+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_fastapi_data> on 2025-11-01 00:00:00+00:00
+[2025-11-02T14:01:47.403+0000] {standard_task_runner.py:57} INFO - Started process 53 to run task
+[2025-11-02T14:01:47.406+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'extract_fastapi_dag', 'extract_fastapi_data', 'scheduled__2025-11-01T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/extract_fastapi_dag.py', '--cfg-path', '/tmp/tmpken7qmf9']
+[2025-11-02T14:01:47.408+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask extract_fastapi_data
+[2025-11-02T14:01:47.469+0000] {task_command.py:415} INFO - Running <TaskInstance: extract_fastapi_dag.extract_fastapi_data scheduled__2025-11-01T00:00:00+00:00 [running]> on host 1b2b3f08d80a
+[2025-11-02T14:01:47.524+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_fastapi_dag' AIRFLOW_CTX_TASK_ID='extract_fastapi_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-01T00:00:00+00:00'
+[2025-11-02T14:01:47.608+0000] {logging_mixin.py:151} INFO - Data successfully saved to: /opt/***/raw_data/full_load_20251102_140147.json
+[2025-11-02T14:01:47.609+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-11-02T14:01:47.619+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=extract_fastapi_dag, task_id=extract_fastapi_data, execution_date=20251101T000000, start_date=20251102T140147, end_date=20251102T140147
+[2025-11-02T14:01:47.672+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-11-02T14:01:47.687+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

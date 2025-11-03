@@ -1,0 +1,14 @@
+[2025-11-03T06:47:25.334+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data manual__2025-11-03T06:47:24.728570+00:00 [queued]>
+[2025-11-03T06:47:25.340+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_fastapi_dag.extract_fastapi_data manual__2025-11-03T06:47:24.728570+00:00 [queued]>
+[2025-11-03T06:47:25.340+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-11-03T06:47:25.349+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_fastapi_data> on 2025-11-03 06:47:24.728570+00:00
+[2025-11-03T06:47:25.353+0000] {standard_task_runner.py:57} INFO - Started process 81 to run task
+[2025-11-03T06:47:25.355+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'extract_fastapi_dag', 'extract_fastapi_data', 'manual__2025-11-03T06:47:24.728570+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/extract_fastapi_dag.py', '--cfg-path', '/tmp/tmpeo0_bdf1']
+[2025-11-03T06:47:25.356+0000] {standard_task_runner.py:85} INFO - Job 29: Subtask extract_fastapi_data
+[2025-11-03T06:47:25.391+0000] {task_command.py:415} INFO - Running <TaskInstance: extract_fastapi_dag.extract_fastapi_data manual__2025-11-03T06:47:24.728570+00:00 [running]> on host 85d439ee6ea4
+[2025-11-03T06:47:25.435+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_fastapi_dag' AIRFLOW_CTX_TASK_ID='extract_fastapi_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-03T06:47:24.728570+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-03T06:47:24.728570+00:00'
+[2025-11-03T06:47:25.553+0000] {logging_mixin.py:151} INFO - Data successfully saved to: /opt/***/raw_data/full_load_20251103_064725.json
+[2025-11-03T06:47:25.554+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-11-03T06:47:25.563+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=extract_fastapi_dag, task_id=extract_fastapi_data, execution_date=20251103T064724, start_date=20251103T064725, end_date=20251103T064725
+[2025-11-03T06:47:25.576+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-11-03T06:47:25.586+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

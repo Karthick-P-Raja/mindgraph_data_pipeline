@@ -1,0 +1,111 @@
+services:
+  postgres:
+    image: postgres:13
+    container_name: mindgraph_postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mindgraph_net
+
+  redis:
+    image: redis:latest
+    container_name: mindgraph_redis
+    networks:
+      - mindgraph_net
+
+  minio:
+    image: minio/minio
+    container_name: mindgraph_minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+    volumes:
+      - ./minio_data:/data
+    networks:
+      - mindgraph_net
+
+  airflow-webserver:
+    image: apache/airflow:2.7.1
+    container_name: mindgraph_airflow_webserver
+    restart: always
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__FERNET_KEY=EW_RmcEvrVMIcOfk0BF3k6A87FKd6gkHuVWtDGH4OvA=
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+    volumes:
+      - ./airflow_dags:/opt/airflow/dags
+      - ./airflow_logs:/opt/airflow/logs
+    ports:
+      - "8080:8080"
+    command: webserver
+    networks:
+      - mindgraph_net
+
+  airflow-scheduler:
+    image: apache/airflow:2.7.1
+    container_name: mindgraph_airflow_scheduler
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - AIRFLOW__CORE__FERNET_KEY=EW_RmcEvrVMIcOfk0BF3k6A87FKd6gkHuVWtDGH4OvA=
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+    volumes:
+      - ./airflow_dags:/opt/airflow/dags
+      - ./airflow_logs:/opt/airflow/logs
+    command: scheduler
+    networks:
+      - mindgraph_net
+
+  spark:
+    image: custom-spark:3.5.0
+    container_name: mindgraph_spark
+    build:
+      context: ./spark
+      dockerfile: Dockerfile
+    depends_on:
+      - minio
+    environment:
+      - AWS_ACCESS_KEY_ID=minioadmin
+      - AWS_SECRET_ACCESS_KEY=minioadmin
+      - AWS_REGION=us-east-1
+      - SPARK_JARS_DIR=/opt/spark/jars
+      - PYSPARK_PYTHON=python3
+    volumes:
+      - ./airflow_dags:/opt/airflow/dags
+     #- ./spark:/opt/spark
+    networks:
+      - mindgraph_net
+    command: ["tail", "-f", "/dev/null"]
+
+  fastapi:
+    build:
+      context: ./fastapi_app
+      dockerfile: Dockerfile
+    container_name: mindgraph_fastapi
+    ports:
+      - "8000:8000"
+    networks:
+      - mindgraph_net
+
+
+networks:
+  mindgraph_net:
+    driver: bridge
+
+volumes:
+  postgres_data:

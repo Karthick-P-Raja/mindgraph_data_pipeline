@@ -1,0 +1,15 @@
+[2025-11-02T14:01:55.789+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_to_minio_dag.upload_to_minio manual__2025-11-02T14:01:54.738491+00:00 [queued]>
+[2025-11-02T14:01:55.795+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_to_minio_dag.upload_to_minio manual__2025-11-02T14:01:54.738491+00:00 [queued]>
+[2025-11-02T14:01:55.795+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-11-02T14:01:55.802+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): upload_to_minio> on 2025-11-02 14:01:54.738491+00:00
+[2025-11-02T14:01:55.806+0000] {standard_task_runner.py:57} INFO - Started process 56 to run task
+[2025-11-02T14:01:55.810+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'load_to_minio_dag', 'upload_to_minio', 'manual__2025-11-02T14:01:54.738491+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/load_to_minio_dag.py', '--cfg-path', '/tmp/tmpdgpviex5']
+[2025-11-02T14:01:55.812+0000] {standard_task_runner.py:85} INFO - Job 4: Subtask upload_to_minio
+[2025-11-02T14:01:55.851+0000] {task_command.py:415} INFO - Running <TaskInstance: load_to_minio_dag.upload_to_minio manual__2025-11-02T14:01:54.738491+00:00 [running]> on host 1b2b3f08d80a
+[2025-11-02T14:01:55.901+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='load_to_minio_dag' AIRFLOW_CTX_TASK_ID='upload_to_minio' AIRFLOW_CTX_EXECUTION_DATE='2025-11-02T14:01:54.738491+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-02T14:01:54.738491+00:00'
+[2025-11-02T14:01:56.508+0000] {logging_mixin.py:151} INFO -  Uploaded: full_load_20251102_130725.json
+[2025-11-02T14:01:56.515+0000] {logging_mixin.py:151} INFO -  Uploaded: full_load_20251102_140147.json
+[2025-11-02T14:01:56.516+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-11-02T14:01:56.522+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=load_to_minio_dag, task_id=upload_to_minio, execution_date=20251102T140154, start_date=20251102T140155, end_date=20251102T140156
+[2025-11-02T14:01:56.566+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-11-02T14:01:56.578+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

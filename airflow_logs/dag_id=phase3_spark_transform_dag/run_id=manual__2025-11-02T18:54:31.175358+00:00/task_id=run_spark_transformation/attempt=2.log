@@ -1,0 +1,23 @@
+[2025-11-02T18:59:32.815+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: phase3_spark_transform_dag.run_spark_transformation manual__2025-11-02T18:54:31.175358+00:00 [queued]>
+[2025-11-02T18:59:32.820+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: phase3_spark_transform_dag.run_spark_transformation manual__2025-11-02T18:54:31.175358+00:00 [queued]>
+[2025-11-02T18:59:32.820+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-11-02T18:59:32.825+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): run_spark_transformation> on 2025-11-02 18:54:31.175358+00:00
+[2025-11-02T18:59:32.828+0000] {standard_task_runner.py:57} INFO - Started process 119 to run task
+[2025-11-02T18:59:32.831+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'phase3_spark_transform_dag', 'run_spark_transformation', 'manual__2025-11-02T18:54:31.175358+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/phase3_spark_transform_dag.py', '--cfg-path', '/tmp/tmpj9mlvk2_']
+[2025-11-02T18:59:32.831+0000] {standard_task_runner.py:85} INFO - Job 16: Subtask run_spark_transformation
+[2025-11-02T18:59:32.859+0000] {task_command.py:415} INFO - Running <TaskInstance: phase3_spark_transform_dag.run_spark_transformation manual__2025-11-02T18:54:31.175358+00:00 [running]> on host 4104d610d1a3
+[2025-11-02T18:59:32.892+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='phase3_spark_transform_dag' AIRFLOW_CTX_TASK_ID='run_spark_transformation' AIRFLOW_CTX_EXECUTION_DATE='2025-11-02T18:54:31.175358+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-02T18:54:31.175358+00:00'
+[2025-11-02T18:59:32.893+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-02T18:59:32.894+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec mindgraph_spark /opt/spark/bin/spark-submit --master spark://mindgraph_spark:7077 /opt/***/dags/phase3_spark_transform.py']
+[2025-11-02T18:59:32.901+0000] {subprocess.py:86} INFO - Output:
+[2025-11-02T18:59:32.935+0000] {subprocess.py:93} INFO - Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+[2025-11-02T18:59:32.936+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-11-02T18:59:32.942+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-11-02T18:59:32.945+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=phase3_spark_transform_dag, task_id=run_spark_transformation, execution_date=20251102T185431, start_date=20251102T185932, end_date=20251102T185932
+[2025-11-02T18:59:32.951+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 16 for task run_spark_transformation (Bash command failed. The command returned a non-zero exit code 1.; 119)
+[2025-11-02T18:59:32.971+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-11-02T18:59:32.981+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,242 @@
+[
+  {
+    "transaction_id": 1,
+    "timestamp": "2025-10-28T13:59:40.369299",
+    "user_id": 1001,
+    "amount": 68.44,
+    "currency": "USD",
+    "status": "SUCCESS"
+  },
+  {
+    "transaction_id": 2,
+    "timestamp": "2025-10-28T14:09:40.369299",
+    "user_id": 1008,
+    "amount": 281.48,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 3,
+    "timestamp": "2025-10-28T14:19:40.369299",
+    "user_id": 1007,
+    "amount": 77.8,
+    "currency": "USD",
+    "status": "SUCCESS"
+  },
+  {
+    "transaction_id": 4,
+    "timestamp": "2025-10-28T14:29:40.369299",
+    "user_id": 1008,
+    "amount": 497.7,
+    "currency": "USD",
+    "status": "SUCCESS"
+  },
+  {
+    "transaction_id": 5,
+    "timestamp": "2025-10-28T14:39:40.369299",
+    "user_id": 1003,
+    "amount": 463.1,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 6,
+    "timestamp": "2025-10-28T14:49:40.369299",
+    "user_id": 1010,
+    "amount": 111.24,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 7,
+    "timestamp": "2025-10-28T14:59:40.369299",
+    "user_id": 1004,
+    "amount": 711.15,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 8,
+    "timestamp": "2025-10-28T15:09:40.369299",
+    "user_id": 1009,
+    "amount": 439.26,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 9,
+    "timestamp": "2025-10-28T15:19:40.369299",
+    "user_id": 1002,
+    "amount": 961.88,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 10,
+    "timestamp": "2025-10-28T15:29:40.369299",
+    "user_id": 1006,
+    "amount": 420.94,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 11,
+    "timestamp": "2025-10-28T15:39:40.369299",
+    "user_id": 1003,
+    "amount": 27.5,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 12,
+    "timestamp": "2025-10-28T15:49:40.369299",
+    "user_id": 1006,
+    "amount": 402.25,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 13,
+    "timestamp": "2025-10-28T15:59:40.369299",
+    "user_id": 1002,
+    "amount": 184.66,
+    "currency": "USD",
+    "status": "SUCCESS"
+  },
+  {
+    "transaction_id": 14,
+    "timestamp": "2025-10-28T16:09:40.369299",
+    "user_id": 1002,
+    "amount": 473.05,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 15,
+    "timestamp": "2025-10-28T16:19:40.369299",
+    "user_id": 1000,
+    "amount": 995.32,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 16,
+    "timestamp": "2025-10-28T16:29:40.369299",
+    "user_id": 1001,
+    "amount": 619.07,
+    "currency": "USD",
+    "status": "SUCCESS"
+  },
+  {
+    "transaction_id": 17,
+    "timestamp": "2025-10-28T16:39:40.369299",
+    "user_id": 1010,
+    "amount": 869.81,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 18,
+    "timestamp": "2025-10-28T16:49:40.369299",
+    "user_id": 1001,
+    "amount": 516.21,
+    "currency": "USD",
+    "status": "SUCCESS"
+  },
+  {
+    "transaction_id": 19,
+    "timestamp": "2025-10-28T16:59:40.369299",
+    "user_id": 1010,
+    "amount": 51.09,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 20,
+    "timestamp": "2025-10-28T17:09:40.369299",
+    "user_id": 1000,
+    "amount": 618.12,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 21,
+    "timestamp": "2025-10-28T17:19:40.369299",
+    "user_id": 1007,
+    "amount": 402.2,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 22,
+    "timestamp": "2025-10-28T17:29:40.369299",
+    "user_id": 1009,
+    "amount": 549.5,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 23,
+    "timestamp": "2025-10-28T17:39:40.369299",
+    "user_id": 1007,
+    "amount": 165.81,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 24,
+    "timestamp": "2025-10-28T17:49:40.369299",
+    "user_id": 1006,
+    "amount": 297.7,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 25,
+    "timestamp": "2025-10-28T17:59:40.369299",
+    "user_id": 1001,
+    "amount": 477.69,
+    "currency": "USD",
+    "status": "FAILED"
+  },
+  {
+    "transaction_id": 26,
+    "timestamp": "2025-10-28T18:09:40.369299",
+    "user_id": 1006,
+    "amount": 618.36,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 27,
+    "timestamp": "2025-10-28T18:19:40.369299",
+    "user_id": 1009,
+    "amount": 624.13,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 28,
+    "timestamp": "2025-10-28T18:29:40.369299",
+    "user_id": 1008,
+    "amount": 963.54,
+    "currency": "USD",
+    "status": "SUCCESS"
+  },
+  {
+    "transaction_id": 29,
+    "timestamp": "2025-10-28T18:39:40.369299",
+    "user_id": 1003,
+    "amount": 556.68,
+    "currency": "USD",
+    "status": "PENDING"
+  },
+  {
+    "transaction_id": 30,
+    "timestamp": "2025-10-28T18:49:40.369299",
+    "user_id": 1006,
+    "amount": 554.14,
+    "currency": "USD",
+    "status": "PENDING"
+  }
+]

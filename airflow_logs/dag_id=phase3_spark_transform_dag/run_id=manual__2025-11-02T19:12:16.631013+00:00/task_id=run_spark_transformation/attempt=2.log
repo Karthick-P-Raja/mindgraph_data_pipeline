@@ -1,0 +1,26 @@
+[2025-11-02T19:17:36.069+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: phase3_spark_transform_dag.run_spark_transformation manual__2025-11-02T19:12:16.631013+00:00 [queued]>
+[2025-11-02T19:17:36.073+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: phase3_spark_transform_dag.run_spark_transformation manual__2025-11-02T19:12:16.631013+00:00 [queued]>
+[2025-11-02T19:17:36.073+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-11-02T19:17:36.080+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): run_spark_transformation> on 2025-11-02 19:12:16.631013+00:00
+[2025-11-02T19:17:36.084+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'phase3_spark_transform_dag', 'run_spark_transformation', 'manual__2025-11-02T19:12:16.631013+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/phase3_spark_transform_dag.py', '--cfg-path', '/tmp/tmpmwme4jfy']
+[2025-11-02T19:17:36.085+0000] {standard_task_runner.py:85} INFO - Job 19: Subtask run_spark_transformation
+[2025-11-02T19:17:36.083+0000] {standard_task_runner.py:57} INFO - Started process 64 to run task
+[2025-11-02T19:17:36.129+0000] {task_command.py:415} INFO - Running <TaskInstance: phase3_spark_transform_dag.run_spark_transformation manual__2025-11-02T19:12:16.631013+00:00 [running]> on host 574c108eda1b
+[2025-11-02T19:17:36.165+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='phase3_spark_transform_dag' AIRFLOW_CTX_TASK_ID='run_spark_transformation' AIRFLOW_CTX_EXECUTION_DATE='2025-11-02T19:12:16.631013+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-02T19:12:16.631013+00:00'
+[2025-11-02T19:17:36.166+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-11-02T19:17:36.166+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec mindgraph_spark /opt/spark/bin/spark-submit --master spark://mindgraph_spark:7077 /opt/***/dags/phase3_spark_transform.py']
+[2025-11-02T19:17:36.173+0000] {subprocess.py:86} INFO - Output:
+[2025-11-02T19:17:36.269+0000] {subprocess.py:93} INFO - /opt/spark/bin/load-spark-env.sh: line 68: ps: command not found
+[2025-11-02T19:17:37.314+0000] {subprocess.py:93} INFO - python3: can't open file '/opt/***/dags/phase3_spark_transform.py': [Errno 2] No such file or directory
+[2025-11-02T19:17:37.325+0000] {subprocess.py:93} INFO - 25/11/02 19:17:37 INFO ShutdownHookManager: Shutdown hook called
+[2025-11-02T19:17:37.326+0000] {subprocess.py:93} INFO - 25/11/02 19:17:37 INFO ShutdownHookManager: Deleting directory /tmp/spark-32533ad2-c68e-43c6-80f2-fb7625a12908
+[2025-11-02T19:17:37.346+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-11-02T19:17:37.358+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-11-02T19:17:37.362+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=phase3_spark_transform_dag, task_id=run_spark_transformation, execution_date=20251102T191216, start_date=20251102T191736, end_date=20251102T191737
+[2025-11-02T19:17:37.384+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 19 for task run_spark_transformation (Bash command failed. The command returned a non-zero exit code 2.; 64)
+[2025-11-02T19:17:37.428+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-11-02T19:17:37.449+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
