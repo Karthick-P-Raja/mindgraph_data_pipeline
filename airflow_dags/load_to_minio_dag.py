@@ -4,7 +4,6 @@ from datetime import datetime
 import boto3
 import os
 
-# MinIO credentials
 MINIO_ENDPOINT = "minio:9000"
 MINIO_ACCESS_KEY = "minioadmin"
 MINIO_SECRET_KEY = "minioadmin"
@@ -20,13 +19,11 @@ def upload_to_minio():
         aws_secret_access_key=MINIO_SECRET_KEY,
     )
 
-    # Ensure bucket exists
     try:
         s3_client.head_bucket(Bucket=MINIO_BUCKET)
     except:
         s3_client.create_bucket(Bucket=MINIO_BUCKET)
 
-    # Upload files
     for filename in os.listdir(RAW_DATA_DIR):
         if filename.endswith(".json"):
             file_path = os.path.join(RAW_DATA_DIR, filename)
