@@ -77,8 +77,8 @@ docker ps
 | **Airflow Web UI** | http://localhost:8080 |
 | **MinIO Console** | http://localhost:9001 |
 | **FastAPI Server** | http://localhost:8000 |
-<img width="1440" height="900" alt="Screenshot 2025-11-04 at 1 44 10 PM" src="https://github.com/user-attachments/assets/d4238d93-5804-4751-9717-3054d9562fd0" />
-<img width="1440" height="900" alt="Screenshot 2025-11-04 at 1 46 44 PM" src="https://github.com/user-attachments/assets/daadfe26-8225-44ac-9d0b-f193c136a4e8" />
+<img width="1440" height="900" alt="Screenshot 2025-11-04 at 1 46 44 PM" src="https://github.com/user-attachments/assets/65546596-9bea-4547-a40c-7e88b8f9cb3c" />
+<img width="1440" height="900" alt="Screenshot 2025-11-04 at 2 01 49 PM" src="https://github.com/user-attachments/assets/a4645f4d-ac24-4478-9cbb-47e30c28c54e" />
 
 ---
 
