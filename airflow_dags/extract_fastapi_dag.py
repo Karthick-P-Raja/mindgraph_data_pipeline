@@ -12,7 +12,6 @@ default_args = {
 }
 
 def extract_data():
-    # 🔗 For Dockerized setup, FastAPI hostname is "fastapi"
     url = "http://fastapi:8000/data/full"
 
     try:
