@@ -79,7 +79,7 @@ docker ps
 | **FastAPI Server Full Data Load** | http://localhost:8000/data/full |
 <img width="1440" height="900" alt="Screenshot 2025-11-04 at 1 46 44 PM" src="https://github.com/user-attachments/assets/65546596-9bea-4547-a40c-7e88b8f9cb3c" />
 <img width="1440" height="900" alt="Screenshot 2025-11-04 at 2 01 49 PM" src="https://github.com/user-attachments/assets/a4645f4d-ac24-4478-9cbb-47e30c28c54e" />
-<img width="1440" height="900" alt="Screenshot 2025-11-04 at 2 23 30 PM" src="https://github.com/user-attachments/assets/28ea8b03-f0f5-4c58-9ddf-873480d6444f" />
+<img width="1440" height="900" alt="Screenshot 2025-11-04 at 2 26 20 PM" src="https://github.com/user-attachments/assets/42bf6334-95a3-49c9-8998-9afa378b0068" />
 
 ---
 
